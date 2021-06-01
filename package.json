@@ -1,0 +1,22 @@
+{
+  "name": "orderapi",
+  "version": "1.0.0",
+  "description": "basic vanilla js for rest api",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srihan93/OrderApp.git"
+  },
+  "author": "mohanraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srihan93/OrderApp/issues"
+  },
+  "homepage": "https://github.com/srihan93/OrderApp#readme"
+}
