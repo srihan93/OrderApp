@@ -1,4 +1,3 @@
-const data = require("../lib/data");
 var helpers = require("../lib/helpers");
 
 var _user = {};
