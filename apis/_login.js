@@ -8,10 +8,7 @@ _login.post = function(data,callback)
 {
     authorize.createToken(data,(err)=>
     {
-        if(err === false)
-        callback(401);
-        else
-        callback(data);
+        callback(err);
 
     });
 }
