@@ -6,10 +6,10 @@ _logout.post = function(data,callback)
 {
     authorize.deleteToken(data,(err)=>
     {
-        if(err === false)
-        callback(401);
+        if(!err)
+        callback(false);
         else
-        callback(data);
+        callback(true);
 
     });
 }
