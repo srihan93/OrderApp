@@ -1,14 +1,14 @@
 var http = require('https');
 var qs = require('querystring');
-var payment = {};
+var pay = {};
 
-payment.makePayment = (amount,phoneNumber)=>{
+pay.makePayment = ()=>{
     return new Promise((resolve, rejects)=>{
     var postData = qs.stringify({
-        'amount': amount,
+        'amount': '2000',
         'currency': 'usd',
         'source': 'tok_visa',
-        'description': phoneNumber
+        'description': 'pizza order'
       });
     
     var options = {
@@ -23,27 +23,27 @@ payment.makePayment = (amount,phoneNumber)=>{
         }
        };
          
-         var request = http.request(options, function(response) {
-          response.setEncoding('utf8');
-           response.on('data', function (chunk) {
+         var req = http.request(options, function(res) {
+           res.setEncoding('utf8');
+           res.on('data', function (chunk) {
                   console.log('BODY: ' + chunk);
            });
-           response.on('end', function (chunk) {
+           res.on('end', function (chunk) {
             var body = Buffer.concat(chunk);
             console.log(body.toString());
             resolve(chunk);
           });
         
-          response.on("error", function (error) {
+          res.on("error", function (error) {
             console.error(error);
             rejects(error);
           });
          }).end();
-         request.on('error', function(e) {
+         req.on('error', function(e) {
              console.log('request error');
                         rejects(e);
           });
         });
     }
-    module.exports= payment;
+    module.exports= pay;
 
