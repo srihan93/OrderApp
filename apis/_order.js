@@ -1,5 +1,4 @@
 const db = require("../lib/db");
-const dbs = require("../lib/db");
 const helpers = require("../lib/helpers");
 const fs = require("fs");
 var path = require("path");
@@ -19,8 +18,7 @@ _order.post = function (data, callback) {
     callback(response.builder(false, error.authorizationFailed, null, 401));
   }
   var cartId = JSON.parse(userData).phoneNumber;
-  var order={};
-  dbs.read("carts", cartId, data, function (err, cart) {
+  db.read("carts", cartId, data, function (err, cart) {
     if (err === false) {
       helpers.createOrder(cart, db.items, function (err) {
      _order.place(cartId,err,function(response)
@@ -41,7 +39,7 @@ _order.place = function(cartId,err,callback)
 {
   if(err!==true)
   {
-    dbs.create("orders", cartId, err, function (outData) {
+    db.create("orders", cartId, err, function (outData) {
       if (outData !== true) {
         let resultData = {'orderId': cartId,'details':outData}
         callback(response.builder(true, null, resultData, 201));
