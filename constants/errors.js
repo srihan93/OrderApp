@@ -15,6 +15,7 @@ errors.orderNotFound = "Order not found in your account";
 errors.amountInsufficient = "In sufficient amount in your account";
 errors.transactionFailed = "transaction failed for your order";
 errors.orderUpdateFailed = "Error while updating order status/payment status";
+errors.userCreation = "phone,firstName,lastName,email,password are mandatory";
 
 
 module.exports = errors;
