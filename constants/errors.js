@@ -18,4 +18,5 @@ errors.orderUpdateFailed = "Error while updating order status/payment status";
 errors.userCreation = "phone,firstName,lastName,email,password are mandatory";
 
 
+
 module.exports = errors;

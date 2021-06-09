@@ -14,10 +14,8 @@ _order.post = function (data, callback) {
       baseDir + "tokens/" + data.headers.token + ".json",
       "utf-8"
     );
-  } catch (e) {
-    callback(response.builder(false, error.authorizationFailed, null, 401));
-  }
-  var cartId = JSON.parse(userData).phoneNumber;
+
+    var cartId = JSON.parse(userData).phoneNumber;
   db.read("carts", cartId, data, function (err, cart) {
     if (err === false) {
       helpers.createOrder(cart, db.items, function (err) {
@@ -32,6 +30,11 @@ _order.post = function (data, callback) {
       callback(response.builder(false, error.methodNotAllowed, null, 405));
       }
   });
+  } catch (e) 
+  {
+    callback(response.builder(false, error.authorizationFailed, null, 401));
+  }
+  
   
 }
 
