@@ -1,8 +1,9 @@
 
 var errors ={}
 
-
-errors.userExists = "User already exists";
+errors.cannotCreateCart= "Couldn't create Cart";
+errors.userExists = "User already exist";
+errors.userNotExists = "User not exist";
 errors.authorizationFailed = "Token is not valid";
 errors.passwordNotValid ="Username or Password is invalid";
 errors.commonError = "Unknown error occurred";
@@ -16,7 +17,7 @@ errors.amountInsufficient = "In sufficient amount in your account";
 errors.transactionFailed = "transaction failed for your order";
 errors.orderUpdateFailed = "Error while updating order status/payment status";
 errors.userCreation = "phone,firstName,lastName,email,password are mandatory";
-
+errors.cartValidation = "items are not valid";
 
 
 module.exports = errors;

@@ -1,5 +1,8 @@
 const db = require("../lib/db");
 const validation = require("../lib/validation");
+var error = require("./../constants/errors");
+var response = require("./../constants/response");
+
 
 var _cart ={};
 var collection ="carts";
@@ -18,11 +21,11 @@ _cart.post = function(data,callback){
                     {
                         if(err===true)
                         {
-                            callback(true);
+                            callback(response.builder(false, error.cannotCreateCart, null, 500));
                         }
                         else
                         {
-                            callback(false);
+                            callback(response.builder(true, null, {"message":"cart created successfully, call /order to check"}, 200));
                         }
                     });
                 }
@@ -30,7 +33,7 @@ _cart.post = function(data,callback){
             
         }
         else{
-            callback(true);
+            callback(response.builder(false, error.cartValidation, null, 400));
         }
     });
   
