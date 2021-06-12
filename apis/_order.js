@@ -47,6 +47,9 @@ _order.place = function(cartId,err,callback)
         let resultData = {'orderId': cartId,'details':outData}
         callback(response.builder(true, null, resultData, 201));
       }
+      else{
+        callback(response.builder(false, error.orderExists, null, 500));
+      }
     });
   }
   else{

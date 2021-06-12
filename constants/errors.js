@@ -18,6 +18,8 @@ errors.transactionFailed = "transaction failed for your order";
 errors.orderUpdateFailed = "Error while updating order status/payment status";
 errors.userCreation = "phone,firstName,lastName,email,password are mandatory";
 errors.cartValidation = "items are not valid";
+errors.orderExists = "Order already exist, please checkout or delete order";
+
 
 
 module.exports = errors;
